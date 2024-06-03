@@ -1,0 +1,49 @@
+.visit-container{
+    background-color: #8ce2d0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 0px;
+}
+.visit-container .visit-title{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.visit-container .visit-title h1{
+    font-size: 2.5rem;
+    font-family: "Outfit", sans-serif;
+    color: #101062;
+} 
+.visit-container .info{
+    display: flex;
+    width: 80%;
+    gap: 40px;
+}
+.info .info-details{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.info .info-details p{
+    font-family: "Outfit", sans-serif;
+    color: #090934;
+    font-size: 1.25rem;
+}
+.info-details .info-img{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 50px;
+    border-radius: 100px;
+    position: relative;
+}
+.info-img img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35px;
+}

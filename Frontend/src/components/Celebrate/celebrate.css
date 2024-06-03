@@ -1,0 +1,44 @@
+.celebrate-container{
+    width: 100%;
+    position: relative;
+    padding: 100px 50px;
+    background-color: rgb(15, 0, 64);
+}
+.celebrate-container img{
+    width: 75%;
+    object-fit: contain;
+}
+.celebrate-container .celebrate-details{
+    max-width: 35%;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-evenly;
+    height: 23%;
+    padding: 0px 50px;
+}
+.celebrate-details h1{
+    font-family: "Outfit", sans-serif;
+    color: #ED2939;
+}
+.celebrate-details p{
+    font-size: 1.1rem;
+    font-family: "Outfit", sans-serif;
+}
+.celebrate-details a{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 1.1rem;
+    font-family: "Outfit", sans-serif;
+    color: #002654;
+    text-decoration: none;
+    font-weight: 600;
+}
+.celebrate-details a img{
+    width: 20px;
+}

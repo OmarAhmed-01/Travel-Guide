@@ -1,0 +1,67 @@
+.footer-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.about h1, .website h1, .socials h1{
+    font-family: "Outfit", sans-serif;
+    color: #012169;
+    margin-bottom: 50px;
+}
+.links a{
+    font-family: "Outfit", sans-serif;
+    color: #00133f;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.links a:hover{
+    text-decoration: underline;
+}
+.footer-info{
+    width: 75%;
+    margin: 50px 0px;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}
+.footer-container .footer-info .about{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.about .links{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+}
+.footer-container .footer-info .website{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.website .links{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+}
+.footer-container .footer-info .socials{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.socials .links{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+}
+.links a img{
+    width: 20px;
+}
