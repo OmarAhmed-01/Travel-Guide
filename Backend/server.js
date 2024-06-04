@@ -10,13 +10,17 @@ import 'dotenv/config';
 import { connectDB } from './config/database.js';
 import Landmark_Model from './models/landmarksModels.js';
 import Hotspot_Model from './models/Hotspots.js';
+import Nation_Model from './models/Nations.js';
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(helmet());
+app.use(helmet({
+    crossOriginResourcePolicy: { policy: "cross-origin" }
+}));
 app.use(cors());
+app.use("/images", express.static("uploads"));
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -110,7 +114,8 @@ app.delete('/api/landmarks/delete/:id', async(req, res) => {
         res.json({success: false, message: "Failed to delete item"});    
     }
 });
-
+//========================================================================//
+//HotSpots
 app.post('/api/hotpost/add', upload.single("image"), async(req, res) => {
     let image_filename = `${req.file.filename}`;
     const hotspot = new Hotspot_Model({
@@ -152,6 +157,45 @@ app.delete('/api/hotspot/delete/:id', async(req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({success: false, message: "Error Removing Hotspot"});
+    }
+});
+
+app.put('/api/hotspot/image-edit/:id', upload.single('image'), async(req, res) => {
+    try {
+        const hotspot_id = req.params.id;
+        const imgURL = req.file.filename;
+        const result  = await Hotspot_Model.findByIdAndUpdate({_id: hotspot_id}, {img: imgURL});
+        res.status(200).json({success: true, message: "Images Updated"});
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({success: false, message: "Error Updating Image"});
+    }
+});
+//========================================================================//
+//Nations
+app.post('/api/nations', upload.single('image'), async(req, res) => {
+    let image_file = req.file.filename;
+    const Nations = new Nation_Model({
+        name: req.body.name,
+        desc: req.body.desc,
+        img: image_file,
+    });
+    try {
+        await Nations.save();
+        res.status(200).json({success: true, message: "Nation Added"});
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({success: false, message: "Error Adding Nation"});
+    }
+})
+
+app.get('/api/nations', async(req, res) => {
+    try {
+        const response = await Nation_Model.find({});
+        res.status(200).json({success: true, message: "Fetched Nation", Nations: response});
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({success: false, message: "Error Fetching Nations"});
     }
 })
 

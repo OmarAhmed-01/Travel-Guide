@@ -1,0 +1,112 @@
+.dest-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.dest-container .dest-header{
+    padding: 10px 50px;
+    background-color: aliceblue;
+    box-shadow: 0px 0px 30px 0px rgb(190, 221, 248) inset;
+}
+.dest-header a{
+    font-family: "Outfit", sans-serif;
+    font-size: 1.25rem;
+    text-decoration: none;
+    color: #001b5b;
+    font-weight: 400;
+}
+.dest-header a:hover{
+    text-decoration: underline;
+}
+.dest-header p{
+    font-family: "Outfit", sans-serif;
+    font-size: 1.25rem;
+    color: #012169;
+    font-weight: 600;
+}
+.dest-img{
+    width: 100%;
+    position: relative;
+}
+.dest-img img{
+    width: 100%;
+}
+.dest-img p{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: white;
+    font-family: "Outfit", sans-serif;
+}
+.dest-paragraphs{
+    width: 100%;
+    padding: 100px 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.dest-paragraphs p{
+    width: 50%;
+    font-family: "Outfit", sans-serif;
+    font-size: 1.25rem;
+    color: #001b5b;
+}
+.nations{
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    gap: 50px;
+    padding-top: 100px;
+    padding-left: 200px;
+    padding-right: 50px;
+}
+.nations-title h1{
+    font-family: "Outfit", sans-serif;
+    font-size: 2rem;
+    color: #012169;
+}
+.nations .nations-items{
+    display: flex;
+    gap: 50px;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+}
+.nations .nations-items::-webkit-scrollbar{
+    display: none;
+}
+.nations-items .item{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.nations-items .item img{
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+}
+.nations-items .item h1{
+    color: #C8102E;
+    font-family: "Outfit", sans-serif;
+}
+.nations-items .item p{
+    color: #012169;
+    font-family: "Outfit", sans-serif;
+    font-size: 1.1rem;
+}
+.nations .arrows{
+    display: flex;
+    gap: 20px;
+}
+.nations .arrows img{
+    width: 50px;
+    height: 50px;
+    background-color:#C8102E;
+    padding: 10px 10px;
+    border-radius: 40px;
+    margin-bottom: 50px;
+    cursor: pointer;
+}
+.nations .arrows img:hover{
+    background-color: #a21028;
+}

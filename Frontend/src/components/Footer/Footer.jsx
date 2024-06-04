@@ -9,10 +9,10 @@ const Footer = () => {
             <div className="about">
                 <h1>About this site</h1>
                 <div className="links">
-                    <a href='' target='_blank'>Privacy Policy</a>
-                    <a href='' target='_blank'>Cookies</a>
-                    <a href='' target='_blank'>Accessibility Statement</a>
-                    <a href='' target='_blank'>Terms of use</a>
+                    <a href='/privacy-policy' target='_blank'>Privacy Policy</a>
+                    <a href='/cookies' target='_blank'>Cookies</a>
+                    <a href='/accessibility-statement' target='_blank'>Accessibility Statement</a>
+                    <a href='/terms-use' target='_blank'>Terms of use</a>
                 </div>
             </div>
             <div className="website">

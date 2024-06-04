@@ -16,6 +16,10 @@ import instagram from './instagram.png'
 import facebook from './facebook.png'
 import twitter from './twitter.png'
 import youtube from './youtube.png'
+import UK from './UK.jpg'
+import destination_header from './Destinations.jpg'
+import arrow_left_scroll from './arrow_left_scroll.png'
+import arrow_right_scroll from './arrow_right_scroll.png'
 
 export const assets = {
     arrow_up,
@@ -36,4 +40,8 @@ export const assets = {
     facebook,
     twitter,
     youtube,
+    UK,
+    destination_header,
+    arrow_left_scroll,
+    arrow_right_scroll,
 }

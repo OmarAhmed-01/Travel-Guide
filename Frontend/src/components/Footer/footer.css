@@ -27,7 +27,7 @@
     margin: 50px 0px;
     display: flex;
     align-items: start;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .footer-container .footer-info .about{
     display: flex;
