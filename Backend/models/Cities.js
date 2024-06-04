@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
 const CitySchema = new mongoose.Schema({
-    City: {type: String, required: true},
-    Country: {type: String, required: true},
-    Desc: {type: String, required: true},
+    city: {type: String, required: true},
+    country: {type: String, required: true},
+    desc: {type: String, required: true},
     img: {type: String, required: true},
 });
 

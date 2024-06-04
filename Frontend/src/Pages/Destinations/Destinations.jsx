@@ -8,10 +8,15 @@ const Destinations = () => {
 
     const { backend_url } = useContext(Context);
     const [nations, setNations] = useState([]);
+    const [cities, setCities] = useState([]);
+    const NationScrollAmount = 600;
+    const CityScrollAmount = 600;
 
-    const slideRef = useRef(null);
-    const scrollAmount = 400;
-    const container = slideRef.current;
+    const NationsSlideRef = useRef(null);
+    const NationContainer = NationsSlideRef.current;
+
+    const CitySlideRef = useRef(null);
+    const CityContainer = CitySlideRef.current;
 
     const fetchNations = async() => {
         try {
@@ -22,12 +27,23 @@ const Destinations = () => {
         }
     };
 
+    const fetchCities = async() => {
+      try {
+        const response = await axios.get(backend_url+'/api/city');
+        setCities(response.data.Cities)
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     useEffect(() => {
         fetchNations();
+        fetchCities();
     }, []);
 
     useEffect(() => {
         console.log("Nations: "+JSON.stringify(nations, null, 2));
+        console.log("Cities: "+JSON.stringify(cities, null, 2));
     }, [nations])
 
   return (
@@ -68,7 +84,7 @@ const Destinations = () => {
         <div className="nations-title">
             <h1>Nations</h1>
         </div>
-        <div className="nations-items" ref={slideRef}>
+        <div className="nations-items" ref={NationsSlideRef}>
             {
                 nations.map((nation) => (
                     <div key={nation._id} className="item">
@@ -80,8 +96,29 @@ const Destinations = () => {
             }
         </div>
         <div className="arrows">
-            <img src={assets.arrow_left_scroll} onClick={() => container.scrollLeft -= scrollAmount} alt="" />
-            <img src={assets.arrow_right_scroll} onClick={() => container.scrollLeft += scrollAmount} alt="" />
+            <img src={assets.arrow_left_scroll} onClick={() => NationContainer.scrollLeft -= NationScrollAmount} alt="" />
+            <img src={assets.arrow_right_scroll} onClick={() => NationContainer.scrollLeft += NationScrollAmount} alt="" />
+        </div>
+      </div>
+      <div className="cities">
+        <div className="cities-title">
+          <h1>Cities</h1>
+        </div>
+        <div className="cities-items" ref={CitySlideRef}>
+          {
+            cities.map((city) => (
+              <div key={city._id} className="item">
+                <img src={backend_url+'/images/'+city.img} alt="" />
+                <h1>{city.city}</h1>
+                <h2>{city.country}</h2>
+                <p>{city.desc}</p>
+              </div>
+            ))
+          }
+        </div>
+        <div className="arrows">
+            <img src={assets.arrow_left_scroll} onClick={() => CityContainer.scrollLeft -= CityScrollAmount} alt="" />
+            <img src={assets.arrow_right_scroll} onClick={() => CityContainer.scrollLeft += CityScrollAmount} alt="" />
         </div>
       </div>
     </div>

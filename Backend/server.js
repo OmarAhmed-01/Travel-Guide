@@ -11,6 +11,7 @@ import { connectDB } from './config/database.js';
 import Landmark_Model from './models/landmarksModels.js';
 import Hotspot_Model from './models/Hotspots.js';
 import Nation_Model from './models/Nations.js';
+import City_Model from './models/Cities.js';
 
 const app = express();
 
@@ -198,6 +199,46 @@ app.get('/api/nations', async(req, res) => {
         res.status(500).json({success: false, message: "Error Fetching Nations"});
     }
 })
+//========================================================================//
+//City
+app.post('/api/city', upload.single("image"), async(req, res) => {
+    let img_file = req.file.filename;
+    const Cities = new City_Model({
+        city: req.body.city,
+        country: req.body.country,
+        desc: req.body.desc,
+        img: img_file,
+    })
+    try {
+        await Cities.save();
+        res.status(200).json({success: true, message: "City Added"});
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({success: false, message: "Error Adding City"});
+    }
+});
+
+app.get('/api/city', async(req, res) => {
+    try {
+        const response = await City_Model.find({});
+        res.status(200).json({success: true, message: "Fetched Cities", Cities: response})
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({success: false, message: "Error Fetching City"});
+    }
+});
+
+app.put('/api/city/:id', upload.single('image'), async(req, res) => {
+    try {
+        const city_id = req.params.id;
+        const imgURL = req.file.filename;
+        const result  = await City_Model.findByIdAndUpdate({_id: city_id}, {img: imgURL});
+        res.status(200).json({success: true, message: "Images Updated"});
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({success: false, message: "Error Updating Image"});
+    }
+});
 
 app.listen(process.env.PORT, () => {
     console.log(`Server started on http://localhost:${process.env.PORT}`);
