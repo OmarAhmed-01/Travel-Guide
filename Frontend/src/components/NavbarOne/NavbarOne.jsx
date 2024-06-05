@@ -24,6 +24,12 @@ const NavbarOne = () => {
                 </a>
             </div>
             <div className="details-header">
+                <a onMouseEnter={() => setPlanMenu(true)} onMouseLeave={() => setPlanMenu(false)} href="/landmarks">
+                    <h1>Landmarks</h1>
+                    <img src={planMenu ? assets.arrow_up : assets.arrow_down} alt="" />
+                </a>
+            </div>
+            <div className="details-header">
                 <a onMouseEnter={() => setThingsMenu(true)} onMouseLeave={() => setThingsMenu(false)} href="/things-to-do">
                     <h1>Things to do</h1>
                     <img src={thingsMenu ? assets.arrow_up : assets.arrow_down} alt="" />

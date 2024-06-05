@@ -11,10 +11,21 @@ const ContextProvider = (props) => {
     const HomePage = () => {
         navigate('/');
     }
+    const HandleNationClick = (nation_name) => {
+        const TrimmedNationName = nation_name.trim().replace(/\s+/g, '-');
+        navigate(`/destinations/${TrimmedNationName}`);
+    };
+    const HandleCityClick = (country_name, city_name) => {
+        const TrimmedCityName = city_name.trim().replace(/\s+/g, '-');
+        const TrimmedCountryName = country_name.trim().replace(/\s+/g, '-');
+        navigate(`/destinations/${TrimmedCountryName}/${TrimmedCityName}`);
+    }
 
     const contextValue = {
         HomePage,
         backend_url,
+        HandleNationClick,
+        HandleCityClick,
     };
     return (
         <Context.Provider value={contextValue}>

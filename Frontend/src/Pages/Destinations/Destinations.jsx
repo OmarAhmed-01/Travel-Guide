@@ -6,7 +6,7 @@ import axios from "axios";
 
 const Destinations = () => {
 
-    const { backend_url } = useContext(Context);
+    const { backend_url, HandleNationClick, HandleCityClick } = useContext(Context);
     const [nations, setNations] = useState([]);
     const [cities, setCities] = useState([]);
     const NationScrollAmount = 600;
@@ -89,7 +89,7 @@ const Destinations = () => {
                 nations.map((nation) => (
                     <div key={nation._id} className="item">
                         <img src={backend_url + "/images/"+nation.img} alt="" />
-                        <h1>{nation.name}</h1>
+                        <h1 onClick={() => {HandleNationClick(nation.name)}}>{nation.name}</h1>
                         <p>{nation.desc}</p>
                     </div>
                 ))
@@ -109,8 +109,8 @@ const Destinations = () => {
             cities.map((city) => (
               <div key={city._id} className="item">
                 <img src={backend_url+'/images/'+city.img} alt="" />
-                <h1>{city.city}</h1>
-                <h2>{city.country}</h2>
+                <h1 onClick={() => {HandleCityClick(city.country,city.city)}}>{city.city}</h1>
+                <h2 onClick={() => {HandleNationClick(city.country)}}>{city.country}</h2>
                 <p>{city.desc}</p>
               </div>
             ))

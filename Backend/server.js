@@ -176,10 +176,20 @@ app.put('/api/hotspot/image-edit/:id', upload.single('image'), async(req, res) =
 //Nations
 app.post('/api/nations', upload.single('image'), async(req, res) => {
     let image_file = req.file.filename;
+    const galleryFiles = req.files['gallery'] ? req.files['gallery'].map(file => file.filename) : [];
+
     const Nations = new Nation_Model({
         name: req.body.name,
         desc: req.body.desc,
         img: image_file,
+        capital: req.body.capital,
+        currency: req.body.currency,
+        timezone: req.body.timezone,
+        paragraphs: {
+            p1: re.body.p1,
+            p2: req.body.p2,
+        },
+        gallery: galleryFiles,
     });
     try {
         await Nations.save();
@@ -198,7 +208,23 @@ app.get('/api/nations', async(req, res) => {
         console.log(error);
         res.status(500).json({success: false, message: "Error Fetching Nations"});
     }
-})
+});
+
+app.put('/api/nations/edit/:id', upload.array('image', 4), async(req, res) => {
+    try {
+        const nation_id = req.params.id;
+        const newImages = req.files.map(file => path.basename(file.path));
+        const updateData = {
+            ...req.body, // Body fields
+            $push: { gallery: { $each: newImages } } // New images
+        };
+        const result = await Nation_Model.findByIdAndUpdate({_id: nation_id}, updateData, { new: true });
+        res.status(200).json({success: true, message: "Updated Successfully"})
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({success: false, message: "Error Updating"});
+    }
+});
 //========================================================================//
 //City
 app.post('/api/city', upload.single("image"), async(req, res) => {
