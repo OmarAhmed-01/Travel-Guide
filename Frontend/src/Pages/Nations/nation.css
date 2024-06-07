@@ -1,0 +1,148 @@
+@import "react-slideshow-image/dist/styles.css";
+.nations-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.nations-container .nations-title{
+    padding: 10px 50px;
+    background-color: aliceblue;
+    box-shadow: 0px 0px 30px 0px rgb(190, 221, 248) inset;
+}
+.nations-title a{
+    font-family: "Outfit", sans-serif;
+    font-size: 1.25rem;
+    text-decoration: none;
+    color: #001b5b;
+    font-weight: 400;
+}
+.nations-title a:hover{
+    text-decoration: underline;
+}
+.nations-title p{
+    font-family: "Outfit", sans-serif;
+    font-size: 1.25rem;
+    color: #012169;
+    font-weight: 600;
+}
+.nations-container .nations-header{
+    position: relative;
+    width: 100%;
+    background-color: #8ce2d0;
+}
+.nations-header img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.nations-container .nations-header h1{
+    font-size: 2.25rem;
+    color: white;
+    font-family: "Outfit", sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translate(-5%, -50%);
+}
+.nations-container .nations-details{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #8ce2d0;
+    padding: 20px 0px;
+}
+.capital h2, .currency h2, .timezone h2{
+    font-family: "Outfit", sans-serif;
+    color: #012169;
+    font-size: 2rem;
+}
+.capital p, .currency p, .timezone p{
+    font-family: "Outfit", sans-serif;
+    color: #001b5b;
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+.nations-information{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    background-color: aliceblue;
+    width: 100%;
+    padding: 2.5% 5%;
+}
+.nations-information h1{
+    font-family: "Outfit", sans-serif;
+    font-size: 2.3rem;
+    color: #001b5b;
+}
+.nations-information p{
+    width: 40%;
+    font-size: 1.75rem;
+    color: #001b5b;
+    font-weight: 400;
+    font-family: "Outfit", sans-serif;
+}
+.nations-paragraphs{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 2.5% 5%;
+    width: 100%;
+}
+.nations-paragraphs h1{
+    font-family: "Outfit", sans-serif;
+    font-size: 2.3rem;
+    color: #001b5b;
+}
+.nations-paragraphs p{
+    width: 50%;
+    font-size: 1.75rem;
+    color: #001b5b;
+    font-weight: 400;
+    font-family: "Outfit", sans-serif;
+}
+.nations-gallery{
+    background-color: #012169;
+    width: 100%;
+    display: flex;
+    gap: 40px;
+    padding: 2.5% 5%;
+}
+.nations-gallery .gallery-scroll-button button img{
+    width: 50px;
+}
+.nations-gallery .gallery-scroll-button{
+    display: flex;
+    gap: 20px;
+    padding: 100px 0px;
+}
+.nations-gallery .gallery-scroll-button button{
+    width: 70px;
+    height: 70px;
+    border-radius: 70px;
+    outline: none;
+    border: none;
+    background-color: #C8102E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.nations-gallery .gallery-scroll-button button:hover{
+    background-color: #930d23;
+}
+
+.nations-gallery .gallery-images{
+    display: flex;
+    width: 100%;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+}
+.nations-gallery .gallery-images img{
+    width: 100%;
+    object-fit: cover;
+}
+.nations-gallery .gallery-images::-webkit-scrollbar{
+    display: none;
+}
+

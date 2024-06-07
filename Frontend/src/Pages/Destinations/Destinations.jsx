@@ -50,7 +50,7 @@ const Destinations = () => {
     <div className="dest-container">
       <div className="dest-header">
         <p>
-          <a href="/">Home</a>/Destinations
+          <a href="/">Home</a> / Destinations
         </p>
       </div>
       <div className="dest-img">
