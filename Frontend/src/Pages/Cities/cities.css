@@ -1,0 +1,144 @@
+.cities-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.cities-container .cities-title{
+    padding: 10px 50px;
+    background-color: aliceblue;
+    box-shadow: 0px 0px 30px 0px rgb(190, 221, 248) inset;
+}
+.cities-title a{
+    font-family: "Outfit", sans-serif;
+    font-size: 1.25rem;
+    text-decoration: none;
+    color: #001b5b;
+    font-weight: 400;
+}
+.cities-title a:hover{
+    text-decoration: underline;
+}
+.cities-title p{
+    font-family: "Outfit", sans-serif;
+    font-size: 1.25rem;
+    color: #012169;
+    font-weight: 600;
+}
+.cities-container .cities-header{
+    position: relative;
+    width: 100%;
+    background-color: #8ce2d0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.cities-container .cities-header img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.cities-container .cities-header h1{
+    font-size: 2.75rem;
+    color: white;
+    font-family: "Outfit", sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translate(-5%, -50%);
+}
+.cities-container .cities-desc{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #8ce2d0;
+    padding: 30px 30px;
+}
+.cities-desc .desc-info{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.desc-info h1{
+    font-family: "Outfit", sans-serif;
+    color: #012169;
+    font-size: 2.5rem;
+}
+.desc-info p{
+    font-family: "Outfit", sans-serif;
+    font-weight: 400;
+    color: #001b5b;
+    font-size: 1.5rem;
+    width: 70%;
+}
+.cities-desc img{
+    width: 30%;
+}
+.cities-paragraphs{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 4% 9%;
+    width: 100%;
+}
+.cities-paragraphs h1{
+    font-family: "Outfit", sans-serif;
+    font-size: 2.3rem;
+    color: #001b5b;
+}
+.cities-paragraphs p{
+    width: 50%;
+    font-size: 1.75rem;
+    color: #001b5b;
+    font-weight: 400;
+    font-family: "Outfit", sans-serif;
+}
+.cities-gallery{
+    background-color: #012169;
+    width: 100%;
+    display: flex;
+    gap: 40px;
+    padding: 2.5% 5%;
+}
+.cities-gallery .gallery-scroll-button button img{
+    width: 50px;
+}
+.cities-gallery .gallery-scroll-button{
+    display: flex;
+    gap: 20px;
+    padding: 100px 0px;
+}
+.cities-gallery .gallery-scroll-button button{
+    width: 70px;
+    height: 70px;
+    border-radius: 70px;
+    outline: none;
+    border: none;
+    background-color: #C8102E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.cities-gallery .gallery-scroll-button button:hover{
+    background-color: #930d23;
+}
+.cities-gallery .gallery-images{
+    display: flex;
+    width: 100%;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+}
+.cities-gallery .gallery-images img{
+    width: 100%;
+    object-fit: cover;
+}
+.cities-gallery .gallery-images::-webkit-scrollbar{
+    display: none;
+}

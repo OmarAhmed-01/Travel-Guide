@@ -8,6 +8,8 @@ const ContextProvider = (props) => {
     const navigate = useNavigate();
     const backend_url = "http://localhost:4000";
 
+    const ref = useRef(null);
+    const scrollAmount = 700;
     const HomePage = () => {
         navigate('/');
     }
@@ -19,13 +21,28 @@ const ContextProvider = (props) => {
         const TrimmedCityName = city_name.trim().replace(/\s+/g, '-');
         const TrimmedCountryName = country_name.trim().replace(/\s+/g, '-');
         navigate(`/destinations/${TrimmedCountryName}/${TrimmedCityName}`);
-    }
+    };
+    const scrollLeft = () => {
+        if (ref.current) {
+            ref.current.scrollLeft -= scrollAmount;
+        }
+    };
+
+    const scrollRight = () => {
+        if (ref.current) {
+            ref.current.scrollLeft += scrollAmount;
+        }
+    };
 
     const contextValue = {
         HomePage,
         backend_url,
         HandleNationClick,
         HandleCityClick,
+        ref,
+        scrollLeft,
+        scrollRight,
+        scrollAmount,
     };
     return (
         <Context.Provider value={contextValue}>

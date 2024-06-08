@@ -8,11 +8,8 @@ import { assets } from '../../assets/assets';
 const Nation = () => {
 
     const { nation } = useParams();
-    const { backend_url } = useContext(Context);
+    const { backend_url, scrollLeft, scrollRight, ref } = useContext(Context);
     const [nations, setNations] = useState([]);
-    const [imageIndex, setImageIndex] = useState(0);
-    const ref = useRef(null);
-    const scrollAmount = 700;
 
     let Filtered_Nations;
 
@@ -32,22 +29,10 @@ const Nation = () => {
         fetchNations();
     }, []);
 
-    const scrollLeft = () => {
-        if (ref.current) {
-            ref.current.scrollLeft -= scrollAmount;
-        }
-    };
-
-    const scrollRight = () => {
-        if (ref.current) {
-            ref.current.scrollLeft += scrollAmount;
-        }
-    };
-
   return (
     <div className='nations-container'>
         <div className="nations-title">
-            <p><a href='/'>Home</a> / <a href='/destinations'>Destinations</a> / Nations</p>
+            <p><a href='/'>Home</a> / <a href='/destinations'>Destinations</a> / {nation.replace(/-/g, " ")}</p>
         </div>
         {
             Filtered_Nations.map((item) => (
