@@ -47,3 +47,6 @@
    font-size: 1.25rem; 
    padding: 0px 10px;
 }
+.details-header a h1:hover{
+    text-decoration: underline;
+}

@@ -39,6 +39,9 @@
     text-decoration: none;
     font-weight: 600;
 }
+.celebrate-details a:hover{
+    text-decoration: underline;
+}
 .celebrate-details a img{
     width: 20px;
 }

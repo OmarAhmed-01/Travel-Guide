@@ -1,0 +1,140 @@
+.landmarks-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.landmarks-container .landmarks-header{
+    width: 100%;
+    padding: 10px 50px;
+    background-color: aliceblue;
+    box-shadow: 0px 0px 30px 0px rgb(190, 221, 248) inset;
+}
+.landmarks-container .landmarks-header a{
+    font-family: "Outfit", sans-serif;
+    font-size: 1.25rem;
+    text-decoration: none;
+    color: #001b5b;
+    font-weight: 400;
+}
+.landmarks-container .landmarks-header a:hover{
+    text-decoration: underline;
+}
+.landmarks-container .landmarks-header p{
+    font-family: "Outfit", sans-serif;
+    font-size: 1.25rem;
+    color: #012169;
+    font-weight: 600;
+}
+.image-header{
+    width: 100%;
+    position: relative;
+}
+.image-header img{
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+}
+.image-header h1{
+    font-size: 2rem;
+    font-family: "Outfit", sans-serif;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translate(-5%, -50%);
+}
+.image-header p{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: white;
+    font-size: 1.1rem;
+    font-family: "Outfit", sans-serif;
+}
+.landmarks-intro{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 10%;
+}
+.landmarks-intro .left{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.left h1{
+    font-family: "Outfit", sans-serif;
+    color: #012169;
+    width: 70%;
+}
+.left p{
+    color: #001b5b;
+    font-family: "Outfit", sans-serif;
+    width: 70%;
+    font-size: 1.4rem;
+}
+.landmarks-intro .right img{
+    height: 100vh;
+}
+.landmarks{
+    width: 100%;
+    padding: 3% 5%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.landmarks-item-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #012169;
+}
+.landmarks-item-container .title {
+    padding-left: 5%;
+    padding-top: 3%;
+    font-family: "Outfit", sans-serif;
+    color: white;
+}
+.landmarks-item img{
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+}
+.landmarks-item{
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.landmarks-item h1{
+    color: white;
+    font-family: "Outfit", sans-serif;
+    cursor: pointer;
+}
+.landmarks-item h1:hover{
+    text-decoration: underline;
+}
+.landmarks-item h2{
+    font-family: "Outfit", sans-serif;
+    cursor: pointer;
+    color: #C8102E;
+    font-size: 1.7rem;
+}
+.landmarks-item h2:hover{
+    text-decoration: underline;
+}
+.landmarks-item h3{
+    font-family: "Outfit", sans-serif;
+    cursor: pointer;
+    color: #C8102E;
+    font-size: 1.5rem;
+}
+.landmarks-item h3:hover{
+    text-decoration: underline;
+}
+.landmarks-item p{
+    color: white;
+    font-size: 1rem;
+    font-family: "Outfit", sans-serif;
+}
+

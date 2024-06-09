@@ -47,7 +47,7 @@ app.get('/', (req, res) => {
 app.put('/api/landmarks/photos/:id', upload.array('images', 4), async(req, res) => {
     try {
         const Landmark_ID = req.params.id;
-        const newImages = req.files.map(file => file.path);
+        const newImages = req.files.map(file => path.basename(file.path));
         const result  = await Landmark_Model.findByIdAndUpdate({_id: Landmark_ID}, {$push: {image: {$each: newImages}}});
         res.json({success: true, message: "Updated Successfully"});
     } catch (error) {

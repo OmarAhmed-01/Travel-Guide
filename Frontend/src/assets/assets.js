@@ -20,6 +20,8 @@ import UK from './UK.jpg'
 import destination_header from './Destinations.jpg'
 import arrow_left_scroll from './arrow_left_scroll.png'
 import arrow_right_scroll from './arrow_right_scroll.png'
+import landmarks_header from './Landmarks_Header.jpg'
+import intro_img from './Intro_img.jpg'
 
 export const assets = {
     arrow_up,
@@ -44,4 +46,6 @@ export const assets = {
     destination_header,
     arrow_left_scroll,
     arrow_right_scroll,
+    landmarks_header,
+    intro_img,
 }

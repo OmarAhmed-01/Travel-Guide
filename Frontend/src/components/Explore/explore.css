@@ -33,6 +33,7 @@
     color: #b50000;
     font-weight: 600;
     text-decoration: underline;
+    cursor: pointer;
 }
 .images-details a:hover{
     color: #080835;

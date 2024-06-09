@@ -84,10 +84,15 @@
     width: 400px;
     height: 300px;
     object-fit: cover;
+    cursor: pointer;
 }
 .nations-items .item h1{
     color: #C8102E;
     font-family: "Outfit", sans-serif;
+    cursor: pointer;
+}
+.nations-items .item h1:hover{
+    text-decoration: underline;
 }
 .nations-items .item p{
     color: #012169;
@@ -144,10 +149,18 @@
 .cities-items .item h1{
     color: #ffffff;
     font-family: "Outfit", sans-serif;
+    cursor: pointer;
+}
+.cities-items .item h1:hover{
+    text-decoration: underline;
 }
 .cities-items .item h2{
     color: #C8102E;
     font-family: "Outfit", sans-serif;
+    cursor: pointer;
+}
+.cities-items .item h2:hover{
+    text-decoration: underline;
 }
 .cities-items .item p{
     color: #bbd0ff;

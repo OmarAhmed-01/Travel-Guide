@@ -6,6 +6,7 @@ import Footer from './components/Footer/Footer'
 import Destinations from './Pages/Destinations/Destinations'
 import Nation from './Pages/Nations/Nation'
 import Cities from './Pages/Cities/Cities'
+import Landmarks from './Pages/Landmarks/Landmarks'
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path='/destinations' element={<Destinations/>}/>
         <Route path='/destinations/:nation' element={<Nation/>}/>
         <Route path='/destinations/:country/:city' element={<Cities/>}/>
+        <Route path='/landmarks' element={<Landmarks/>}/>
       </Routes>
       <Footer/>
     </div>
