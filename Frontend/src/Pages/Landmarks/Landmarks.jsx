@@ -6,8 +6,29 @@ import { Context } from "../../context/Context";
 
 const Landmarks = () => {
 
-    const { backend_url } = useContext(Context);
+    const { backend_url, HandleLandmarkClick, HandleNationClick, HandleCityClick } = useContext(Context);
     const [landmarks, setLandmarks] = useState([]);
+    const [filterByName, setFilterByName] = useState("");
+    const [filterByCity, setFilterByCity] = useState("");
+    const [filterByCountry, setFilterByCountry] = useState("");
+
+    const filteredLandmarks = landmarks.filter(landmark => 
+        (filterByName === "" || landmark.name.toLowerCase().includes(filterByName.toLowerCase())) &&
+        (filterByCity === "" || landmark.city.toLowerCase().includes(filterByCity.toLowerCase())) &&
+        (filterByCountry === "" || landmark.country.toLowerCase().includes(filterByCountry.toLowerCase()))
+    );
+
+    const handleNameChange = (event) => {
+        setFilterByName(event.target.value);
+    };
+    const handleCityChange = (event) => {
+        setFilterByCity(event.target.value);
+    };
+    const handleCountryChange = (event) => {
+        setFilterByCountry(event.target.value);
+    };
+
+    console.log(filteredLandmarks);
 
     const fetchLandmarks = async() => {
         try {
@@ -63,18 +84,31 @@ const Landmarks = () => {
             </div>
         </div>
         <div className="landmarks-item-container">
-            <h1 className="title">Europe's Finest</h1>
+            <div className="title">
+                <h1>Europe's Finest</h1>
+                <input type="text" value={filterByName} placeholder="Name search..." onChange={handleNameChange}/>
+                <input type="text" value={filterByCity} placeholder="City search..." onChange={handleCityChange}/>
+                <input type="text" value={filterByCountry} placeholder="Country search..." onChange={handleCountryChange}/>
+            </div>
             <div className="landmarks">
                 {
-                    landmarks.map((item) => (
-                        <div className="landmarks-item" key={item._id}>
-                            <img src={backend_url + "/images/" + item.image[0]} alt="" />
-                            <h1>{item.name}</h1>
-                            <h2>{item.city}</h2>
-                            <h3>{item.country}</h3>
-                            <p>{item.category.join(" / ")}</p>
-                        </div>
-                    ))
+                    filteredLandmarks.length === 0 ? 
+                        (
+                            <div className="error">
+                                <h1>Landmark Not Found!</h1>
+                            </div>
+                        ) : 
+                        (
+                            filteredLandmarks.map((item) => (
+                                <div className="landmarks-item" key={item._id}>
+                                    <img src={backend_url + "/images/" + item.image[0]} alt="" />
+                                    <h1 onClick={() => HandleLandmarkClick(item.country, item.city, item.name)}>{item.name}</h1>
+                                    <h2 onClick={() => HandleCityClick(item.country, item.city)}>{item.city}</h2>
+                                    <h3 onClick={() => HandleNationClick(item.country)}>{item.country}</h3>
+                                    <p>{item.category.join(" / ")}</p>
+                                </div>
+                            ))
+                        )
                 }
             </div>   
         </div>

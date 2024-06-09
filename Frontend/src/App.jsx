@@ -7,6 +7,7 @@ import Destinations from './Pages/Destinations/Destinations'
 import Nation from './Pages/Nations/Nation'
 import Cities from './Pages/Cities/Cities'
 import Landmarks from './Pages/Landmarks/Landmarks'
+import Landmark from './Pages/Landmark/Landmark'
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path='/destinations/:nation' element={<Nation/>}/>
         <Route path='/destinations/:country/:city' element={<Cities/>}/>
         <Route path='/landmarks' element={<Landmarks/>}/>
+        <Route path='/landmarks/:country/:city/:landmark' element={<Landmark/>}/>
       </Routes>
       <Footer/>
     </div>

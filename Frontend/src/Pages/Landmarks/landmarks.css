@@ -92,6 +92,20 @@
 .landmarks-item-container .title {
     padding-left: 5%;
     padding-top: 3%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 5%;
+}
+.landmarks-item-container .title input{
+    border: none;
+    outline: none;
+    padding: 7px 14px;
+    font-family: "Outfit", sans-serif;
+    color: #C8102E;
+    font-size: 1.1rem;
+}
+.landmarks-item-container .title h1{
     font-family: "Outfit", sans-serif;
     color: white;
 }
@@ -136,5 +150,12 @@
     color: white;
     font-size: 1rem;
     font-family: "Outfit", sans-serif;
+}
+.error{
+    width: 100%;
+}
+.error h1{
+    color: white;
+    font-family: "Outfit",sans-serif;
 }
 
