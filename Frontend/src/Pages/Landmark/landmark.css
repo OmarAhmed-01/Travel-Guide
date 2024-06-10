@@ -1,0 +1,152 @@
+.landmark-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.landmark-container .landmark-link{
+    padding: 10px 50px;
+    background-color: aliceblue;
+    box-shadow: 0px 0px 30px 0px rgb(190, 221, 248) inset;
+}
+.landmark-link a{
+    font-family: "Outfit", sans-serif;
+    font-size: 1.25rem;
+    text-decoration: none;
+    color: #001b5b;
+    font-weight: 400;
+}
+.landmark-container a:hover{
+    text-decoration: underline;
+}
+.landmark-link p{
+    font-family: "Outfit", sans-serif;
+    font-size: 1.25rem;
+    color: #012169;
+    font-weight: 600;
+}
+.landmark-header{
+    position: relative;
+    width: 100%;
+    background-color: #8ce2d0;
+}
+.landmark-header img{
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+}
+.landmark-header h1{
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translate(-5%, -50%);
+    color: white;
+    font-family: "Outfit", sans-serif;
+    font-size: 2.25rem;
+}
+.landmark-header p{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: white;
+    font-family: "Outfit", sans-serif;
+}
+.landmark-details{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #8ce2d0;
+    padding: 20px 0px;
+}
+.city h2, .zipcode h2, .location h2{
+    font-family: "Outfit", sans-serif;
+    color: #012169;
+    font-size: 2rem;
+}
+.city p, .zipcode p, .location p{
+    font-family: "Outfit", sans-serif;
+    color: #001b5b;
+    font-size: 1.3rem;
+    font-weight: 400; 
+}
+.landmark-desc{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.landmark-desc .landmark-title{
+    width: 80%;
+    text-align: start;
+    padding: 30px 0px;
+}
+.landmark-title h1{
+    color: #012169;
+    font-family: "Outfit", sans-serif;
+}
+.landmark-desc .landmark-para{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+.landmark-para .landmark-right{
+    width: 50%;
+}
+.landmark-para .landmark-right img{
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+}
+.landmark-para .landmark-left{
+    width: 50%;
+}
+.landmark-left p{
+    width: 70%;
+    color: #001b5b;
+    font-family: "Outfit", sans-serif;
+    font-size: 1.5rem;
+}
+.landmark-gallery{
+    background-color: #012169;
+    width: 100%;
+    display: flex;
+    gap: 40px;
+    padding: 2.5% 5%;
+}
+.landmark-gallery .gallery-scroll-button button img{
+    width: 50px;
+}
+.landmark-gallery .gallery-scroll-button{
+    display: flex;
+    gap: 20px;
+    padding: 100px 0px;
+}
+.landmark-gallery .gallery-scroll-button button{
+    width: 70px;
+    height: 70px;
+    border-radius: 70px;
+    outline: none;
+    border: none;
+    background-color: #C8102E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.landmark-gallery .gallery-scroll-button button:hover{
+    background-color: #930d23;
+}
+.landmark-gallery .gallery-images{
+    display: flex;
+    width: 100%;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+}
+.landmark-gallery .gallery-images img{
+    width: 100%;
+    object-fit: cover;
+}
+.landmark-gallery .gallery-images::-webkit-scrollbar{
+    display: none;
+}
