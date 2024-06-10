@@ -8,6 +8,7 @@ import Nation from './Pages/Nations/Nation'
 import Cities from './Pages/Cities/Cities'
 import Landmarks from './Pages/Landmarks/Landmarks'
 import Landmark from './Pages/Landmark/Landmark'
+import Plantrip from './Pages/PlanTrip/Plantrip'
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path='/destinations/:country/:city' element={<Cities/>}/>
         <Route path='/landmarks' element={<Landmarks/>}/>
         <Route path='/landmarks/:country/:city/:landmark' element={<Landmark/>}/>
+        <Route path='/plan-your-trip' element={<Plantrip/>}/>
       </Routes>
       <Footer/>
     </div>

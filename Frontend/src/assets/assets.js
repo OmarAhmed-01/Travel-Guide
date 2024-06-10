@@ -22,6 +22,10 @@ import arrow_left_scroll from './arrow_left_scroll.png'
 import arrow_right_scroll from './arrow_right_scroll.png'
 import landmarks_header from './Landmarks_Header.jpg'
 import intro_img from './Intro_img.jpg'
+import planTrip_header from './planTrip_header.jpg'
+import accomm from './accom.jpg'
+import visas from './visas.jpg'
+import covid from './covid.jpg'
 
 export const assets = {
     arrow_up,
@@ -48,4 +52,8 @@ export const assets = {
     arrow_right_scroll,
     landmarks_header,
     intro_img,
+    planTrip_header,
+    accomm,
+    visas,
+    covid,
 }
