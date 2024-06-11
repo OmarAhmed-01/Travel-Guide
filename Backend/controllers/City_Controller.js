@@ -116,4 +116,4 @@ const deleteCity = async(req, res) => {
     }
 };
 
-export { fetchCity, postCity, updateCity, deleteCity }
+export { fetchCity, postCity, updateCity, deleteCity };

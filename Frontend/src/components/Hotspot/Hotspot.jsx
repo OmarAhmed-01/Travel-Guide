@@ -11,7 +11,7 @@ const Hotspot = () => {
     
     const getHotspot = async() => {
         try {
-            let response = await axios.get(backend_url + '/api/hotspot');
+            let response = await axios.get(backend_url + '/api/hotspot/get-hotspot');
             setHotspot(response.data.hotspots);
         } catch (error) {
             console.log(error);

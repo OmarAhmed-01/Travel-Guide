@@ -13,6 +13,7 @@ import Hotspot_Model from './models/Hotspots.js';
 import Nation_Model from './models/Nations.js';
 import City_Model from './models/Cities.js';
 import CitiesRouter from './routes/CitiesRouter/CitiesRouter.js';
+import HotspotRouter from './routes/HotspotRouter/HotspotRouter.js';
 
 const app = express();
 
@@ -47,6 +48,7 @@ app.get('/', (req, res) => {
 
 //api endpoints
 app.use('/api/city', CitiesRouter);
+app.use('/api/hotspot', HotspotRouter);
 
 app.put('/api/landmarks/photos/:id', upload.array('images', 4), async(req, res) => {
     try {
@@ -117,63 +119,6 @@ app.delete('/api/landmarks/delete/:id', async(req, res) => {
     } catch (error) {
         console.log(error);
         res.json({success: false, message: "Failed to delete item"});    
-    }
-});
-//========================================================================//
-//HotSpots
-app.post('/api/hotpost/add', upload.single("image"), async(req, res) => {
-    let image_filename = `${req.file.filename}`;
-    const hotspot = new Hotspot_Model({
-        name: req.body.name,
-        desc: req.body.desc,
-        img: image_filename
-    });
-    try {
-        await hotspot.save();
-        res.status(200).json({success: true, message: "Hotspot Added", data: hotspot});
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({success: false, message: "Error Adding Hotspot"});
-    }
-});
-
-app.get('/api/hotspot', async(req, res) => {
-    try {
-        const response = await Hotspot_Model.find({});
-        res.status(200).json({success: true, message: "Fetched Hotspots", hotspots: response});
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({success: false, message: "Error Fetching Hotspots"});
-    }
-});
-
-app.delete('/api/hotspot/delete/:id', async(req, res) => {
-    try {
-        const Hotspot_ID = req.params.id;
-        const hotspot = await Hotspot_Model.findById({_id: Hotspot_ID});
-        if(!hotspot){
-            res.status(404).json({success: false, message: "Hotspot not found"});
-        }
-        else{
-            fs.unlink(`uploads/${hotspot.img}`, () => {});
-            await Hotspot_Model.findByIdAndDelete({_id: Hotspot_ID});
-            res.status(200).json({success: true, message: "Hotspot Removed"});
-        }
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({success: false, message: "Error Removing Hotspot"});
-    }
-});
-
-app.put('/api/hotspot/image-edit/:id', upload.single('image'), async(req, res) => {
-    try {
-        const hotspot_id = req.params.id;
-        const imgURL = req.file.filename;
-        const result  = await Hotspot_Model.findByIdAndUpdate({_id: hotspot_id}, {img: imgURL});
-        res.status(200).json({success: true, message: "Images Updated"});
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({success: false, message: "Error Updating Image"});
     }
 });
 //========================================================================//
