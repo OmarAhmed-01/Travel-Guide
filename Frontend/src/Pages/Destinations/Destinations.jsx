@@ -29,7 +29,7 @@ const Destinations = () => {
 
     const fetchCities = async() => {
       try {
-        const response = await axios.get(backend_url+'/api/city');
+        const response = await axios.get(backend_url+'/api/city/get-city');
         setCities(response.data.Cities)
       } catch (error) {
         console.log(error);

@@ -12,6 +12,7 @@ import Landmark_Model from './models/landmarksModels.js';
 import Hotspot_Model from './models/Hotspots.js';
 import Nation_Model from './models/Nations.js';
 import City_Model from './models/Cities.js';
+import CitiesRouter from './routes/CitiesRouter/CitiesRouter.js';
 
 const app = express();
 
@@ -43,6 +44,9 @@ const upload = multer({storage: storage});
 app.get('/', (req, res) => {
     res.json('Hello World');
 });
+
+//api endpoints
+app.use('/api/city', CitiesRouter);
 
 app.put('/api/landmarks/photos/:id', upload.array('images', 4), async(req, res) => {
     try {
@@ -225,57 +229,9 @@ app.put('/api/nations/edit/:id', upload.array('image', 4), async(req, res) => {
         res.status(500).json({success: false, message: "Error Updating"});
     }
 });
-//========================================================================//
-//City
-app.post('/api/city', upload.single("image"), async(req, res) => {
-    let img_file = req.file.filename;
-    const city_map = req.files['map'] ? req.files['map'].map(file => file.filename) : [];
-    const galleryFiles = req.files['gallery'] ? req.files['gallery'].map(file => file.filename) : [];
-
-    const Cities = new City_Model({
-        city: req.body.city,
-        country: req.body.country,
-        desc: req.body.desc,
-        img: img_file,
-        map: city_map,
-        paragraphs: {
-            p1: req.body.p1,
-            p2: req.body.p2,
-        },
-        gallery: galleryFiles,
-    })
-    try {
-        await Cities.save();
-        res.status(200).json({success: true, message: "City Added"});
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({success: false, message: "Error Adding City"});
-    }
-});
-
-app.get('/api/city', async(req, res) => {
-    try {
-        const response = await City_Model.find({});
-        res.status(200).json({success: true, message: "Fetched Cities", Cities: response})
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({success: false, message: "Error Fetching City"});
-    }
-});
-
-app.put('/api/city/:id', upload.single('image'), async(req, res) => {
-    try {
-        const city_id = req.params.id;
-        const imgURL = req.file.filename;
-        const result  = await City_Model.findByIdAndUpdate({_id: city_id}, {map: imgURL});
-        res.status(200).json({success: true, message: "City Updated"});
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({success: false, message: "Error Updating City"});
-    }
-});
 
 app.listen(process.env.PORT, () => {
     console.log(`Server started on http://localhost:${process.env.PORT}`);
 });
+
 
