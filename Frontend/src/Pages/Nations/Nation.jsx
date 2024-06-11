@@ -18,7 +18,7 @@ const Nation = () => {
 
     const fetchNations = async() => {
         try {
-            const response = await axios.get(backend_url + "/api/nations");
+            const response = await axios.get(backend_url + "/api/nations/get-nations");
             setNations(response.data.Nations);
         } catch (error) {
             console.log(error);

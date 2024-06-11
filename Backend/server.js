@@ -14,6 +14,7 @@ import Nation_Model from './models/Nations.js';
 import City_Model from './models/Cities.js';
 import CitiesRouter from './routes/CitiesRouter/CitiesRouter.js';
 import HotspotRouter from './routes/HotspotRouter/HotspotRouter.js';
+import NationsRouter from './routes/NationsRouter/NationsRouter.js';
 
 const app = express();
 
@@ -49,6 +50,7 @@ app.get('/', (req, res) => {
 //api endpoints
 app.use('/api/city', CitiesRouter);
 app.use('/api/hotspot', HotspotRouter);
+app.use('/api/nations', NationsRouter);
 
 app.put('/api/landmarks/photos/:id', upload.array('images', 4), async(req, res) => {
     try {
