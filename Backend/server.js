@@ -15,6 +15,7 @@ import City_Model from './models/Cities.js';
 import CitiesRouter from './routes/CitiesRouter/CitiesRouter.js';
 import HotspotRouter from './routes/HotspotRouter/HotspotRouter.js';
 import NationsRouter from './routes/NationsRouter/NationsRouter.js';
+import LandmarksRouter from './routes/LandmarksRouter/LandmarksRouter.js';
 
 const app = express();
 
@@ -51,6 +52,7 @@ app.get('/', (req, res) => {
 app.use('/api/city', CitiesRouter);
 app.use('/api/hotspot', HotspotRouter);
 app.use('/api/nations', NationsRouter);
+app.use('/api/landmarks', LandmarksRouter)
 
 app.put('/api/landmarks/photos/:id', upload.array('images', 4), async(req, res) => {
     try {
@@ -124,58 +126,6 @@ app.delete('/api/landmarks/delete/:id', async(req, res) => {
     }
 });
 //========================================================================//
-//Nations
-app.post('/api/nations', upload.single('image'), async(req, res) => {
-    let image_file = req.file.filename;
-    const galleryFiles = req.files['gallery'] ? req.files['gallery'].map(file => file.filename) : [];
-
-    const Nations = new Nation_Model({
-        name: req.body.name,
-        desc: req.body.desc,
-        img: image_file,
-        capital: req.body.capital,
-        currency: req.body.currency,
-        timezone: req.body.timezone,
-        paragraphs: {
-            p1: re.body.p1,
-            p2: req.body.p2,
-        },
-        gallery: galleryFiles,
-    });
-    try {
-        await Nations.save();
-        res.status(200).json({success: true, message: "Nation Added"});
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({success: false, message: "Error Adding Nation"});
-    }
-})
-
-app.get('/api/nations', async(req, res) => {
-    try {
-        const response = await Nation_Model.find({});
-        res.status(200).json({success: true, message: "Fetched Nation", Nations: response});
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({success: false, message: "Error Fetching Nations"});
-    }
-});
-
-app.put('/api/nations/edit/:id', upload.array('image', 4), async(req, res) => {
-    try {
-        const nation_id = req.params.id;
-        const newImages = req.files.map(file => path.basename(file.path));
-        const updateData = {
-            ...req.body, // Body fields
-            $push: { gallery: { $each: newImages } } // New images
-        };
-        const result = await Nation_Model.findByIdAndUpdate({_id: nation_id}, updateData, { new: true });
-        res.status(200).json({success: true, message: "Updated Successfully"})
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({success: false, message: "Error Updating"});
-    }
-});
 
 app.listen(process.env.PORT, () => {
     console.log(`Server started on http://localhost:${process.env.PORT}`);

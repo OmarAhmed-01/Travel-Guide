@@ -9,7 +9,7 @@ const __dirname = dirname(__filename);
 const fetchCity = async(req, res) => {
     try {
         const response = await City_Model.find({});
-        res.status(200).json({success: true, message: "Fetched Cities", Cities: response})
+        res.status(200).json({success: true, message: "Fetched Cities", Cities: response});
     } catch (error) {
         console.log(error);
         res.status(500).json({success: false, message: "Error Fetching City"});

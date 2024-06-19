@@ -15,7 +15,7 @@ const Landmark = () => {
 
   const fetchLandmark = async () => {
     try {
-      const response = await axios.get(backend_url + "/api/landmarks");
+      const response = await axios.get(backend_url + "/api/landmarks/get-landmarks");
       setLandmarks(response.data.data);
     } catch (error) {
       console.log(error);
