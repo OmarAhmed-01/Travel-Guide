@@ -41,11 +41,6 @@ const Destinations = () => {
         fetchCities();
     }, []);
 
-    useEffect(() => {
-        console.log("Nations: "+JSON.stringify(nations, null, 2));
-        console.log("Cities: "+JSON.stringify(cities, null, 2));
-    }, [nations])
-
   return (
     <div className="dest-container">
       <div className="dest-header">

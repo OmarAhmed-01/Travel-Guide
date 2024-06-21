@@ -44,10 +44,6 @@ const Landmarks = () => {
         fetchLandmarks();
     }, []);
 
-    useEffect(() => {
-        console.log(landmarks);
-    }, [])
-
   return (
     <div className="landmarks-container">
         <div className="landmarks-header">

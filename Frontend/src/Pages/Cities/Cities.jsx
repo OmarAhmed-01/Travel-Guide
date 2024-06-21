@@ -15,8 +15,6 @@ const Cities = () => {
   Filtered_Cities = cities.filter(item => item.city.includes(city));
   const country = Filtered_Cities.length > 0 ? Filtered_Cities[0].country : 'Unknown';
 
-  console.log(Filtered_Cities);
-
   const fetchCities = async() => {
     try {
       const response = await axios.get(backend_url+"/api/city/get-city");

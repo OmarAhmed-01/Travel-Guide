@@ -30,8 +30,6 @@ const Landmark = () => {
     item.name.includes(NormalizeLandmark)
   );
 
-  console.log(Filtered_Landmark);
-
   return (
     <div className="landmark-container">
       <div className="landmark-link">
