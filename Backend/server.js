@@ -24,7 +24,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(helmet({
     crossOriginResourcePolicy: { policy: "cross-origin" }
 }));
-app.use(cors());
+app.use(cors({
+    origin: 'https://travel-guide-frontend.onrender.com', // Allow requests from this origin
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+}));
 app.use("/images", express.static("uploads"));
 
 const __filename = fileURLToPath(import.meta.url);
