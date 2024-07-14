@@ -8,10 +8,7 @@ import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import 'dotenv/config';
 import { connectDB } from './config/database.js';
-import Landmark_Model from './models/landmarksModels.js';
-import Hotspot_Model from './models/Hotspots.js';
-import Nation_Model from './models/Nations.js';
-import City_Model from './models/Cities.js';
+
 import CitiesRouter from './routes/CitiesRouter/CitiesRouter.js';
 import HotspotRouter from './routes/HotspotRouter/HotspotRouter.js';
 import NationsRouter from './routes/NationsRouter/NationsRouter.js';

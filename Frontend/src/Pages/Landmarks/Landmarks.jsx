@@ -48,7 +48,7 @@ const Landmarks = () => {
     <div className="landmarks-container">
         <div className="landmarks-header">
             <p>
-                <a href="">Home</a> / Landmarks
+                <a href="/">Home</a> / Landmarks
             </p>
         </div>
         <div className="image-header">

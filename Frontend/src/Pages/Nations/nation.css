@@ -143,4 +143,154 @@
 .nations-gallery .gallery-images::-webkit-scrollbar{
     display: none;
 }
-
+.filtered-cities{
+    width: 100%;
+    padding: 3% 5%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: #8ce2d0;
+}
+.filtered-cities-search{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #8ce2d0 ;
+}
+.filtered-cities-search .title{
+    padding-left: 5%;
+    padding-top: 3%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 5%;
+}
+.filtered-cities-search .title input{
+    border: none;
+    outline: none;
+    padding: 7px 14px;
+    font-family: "Outfit", sans-serif;
+    color: #C8102E;
+    font-size: 1.1rem;
+}
+.error{
+    width: 100%;
+}
+.error h1{
+    color: white;
+    font-family: "Outfit",sans-serif;
+}
+.city-item img{
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+}
+.city-item{
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.city-item h1{
+    color: white;
+    font-family: "Outfit", sans-serif;
+    cursor: pointer;
+}
+.city-item h1:hover{
+    text-decoration: underline;
+}
+.city-item h2{
+    font-family: "Outfit", sans-serif;
+    cursor: pointer;
+    color: #C8102E;
+    font-size: 1.7rem;
+}
+.city-item h2:hover{
+    text-decoration: underline;
+}
+.city-item h3{
+    font-family: "Outfit", sans-serif;
+    cursor: pointer;
+    color: #C8102E;
+    font-size: 1.5rem;
+}
+.city-item h3:hover{
+    text-decoration: underline;
+}
+.city-item p{
+    color: white;
+    font-size: 1rem;
+    font-family: "Outfit", sans-serif;
+}
+.filtered-landmarks-search{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: aliceblue;
+}
+.filtered-landmarks-search .title{
+    padding-left: 5%;
+    padding-top: 3%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 5%;
+}
+.filtered-landmarks-search .title input{
+    border: none;
+    outline: none;
+    padding: 7px 14px;
+    font-family: "Outfit", sans-serif;
+    color: #C8102E;
+    font-size: 1.1rem;
+}
+.filtered-landmarks{
+    width: 100%;
+    padding: 3% 5%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: aliceblue;
+}
+.landmark-item img{
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+}
+.landmark-item{
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.landmark-item h1{
+    color: #001b5b;
+    font-family: "Outfit", sans-serif;
+    cursor: pointer;
+}
+.landmark-item h1:hover{
+    text-decoration: underline;
+}
+.landmark-item h2{
+    font-family: "Outfit", sans-serif;
+    cursor: pointer;
+    color: #C8102E;
+    font-size: 1.7rem;
+}
+.landmark-item h2:hover{
+    text-decoration: underline;
+}
+.landmark-item h3{
+    font-family: "Outfit", sans-serif;
+    cursor: pointer;
+    color: #C8102E;
+    font-size: 1.5rem;
+}
+.landmark-item h3:hover{
+    text-decoration: underline;
+}
+.landmark-item p{
+    color: white;
+    font-size: 1rem;
+    font-family: "Outfit", sans-serif;
+}
