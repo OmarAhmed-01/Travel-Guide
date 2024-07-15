@@ -7,13 +7,23 @@ import { assets } from '../../assets/assets';
 
 const Cities = () => {
 
-  const { backend_url, scrollLeft, scrollRight, ref } = useContext(Context);
+  const { backend_url, scrollLeft, scrollRight, ref, HandleLandmarkClick } = useContext(Context);
   const [cities, setCities] = useState([]);
+  const [landmarks, setLandmarks] = useState([]);
+  const [filterByLandmark, setFilterByLandmark] = useState("");
   const { city } = useParams();
 
   let Filtered_Cities;
   Filtered_Cities = cities.filter(item => item.city.includes(city));
   const country = Filtered_Cities.length > 0 ? Filtered_Cities[0].country : 'Unknown';
+
+  const filterLandmarks = (landmarkName) => {
+    return landmarks.filter(landmark => 
+      landmark.city.toLowerCase() === city.toLowerCase()
+    )
+  };
+
+  const filteredLandmarks = filterLandmarks(filterByLandmark);
 
   const fetchCities = async() => {
     try {
@@ -24,8 +34,23 @@ const Cities = () => {
     }
   };
 
+  const fetchLandmarks = async() => {
+    try {
+      const response  = await axios.get(backend_url + "/api/landmarks/get-landmarks");
+      setLandmarks(response.data.Landmarks);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleLandmarkChange = (event) => {
+    setFilterByLandmark(event.target.value);
+    console.log(`Filter By Landmark: ${filterByLandmark}`);
+  }
+
   useEffect(() => {
     fetchCities();
+    fetchLandmarks();
   }, []);
 
   return (
@@ -35,8 +60,8 @@ const Cities = () => {
       </div>
       {
         Filtered_Cities.map((item) => (
-          <>
-            <div className="cities-header">
+          <React.Fragment key={item._id}>
+            <div className="cities-header" >
               <img src={backend_url + '/images/' + item.img} alt="" />
               <h1>{item.city}</h1>
             </div>
@@ -49,12 +74,12 @@ const Cities = () => {
             </div>
             <div className="cities-paragraphs">
               {
-                item.paragraphs.map((para) => (
-                  <>
-                    <h1>{`Why we love ${item.city}`}</h1>
-                    <p>{para.p1}</p>
-                    <p>{para.p2}</p>
-                  </>
+                item.paragraphs.map((para, index) => (
+                  <React.Fragment key={index}>
+                    <h1 >{`Why we love ${item.city}`}</h1>
+                    <p >{para.p1}</p>
+                    <p >{para.p2}</p>
+                  </React.Fragment>
                 ))
               }
             </div>
@@ -65,13 +90,37 @@ const Cities = () => {
               </div>
               <div className="gallery-images" ref={ref}>
                 {
-                  item.gallery.map((image) => (
-                    <img key={item._id} src={backend_url + "/images/" + image} alt="" />
+                  item.gallery.map((image, index) => (
+                    <img key={index} src={backend_url + "/images/" + image} alt="" />
                   ))
                 }
               </div>
             </div>
-          </>
+            <div className="filtered-landmarks-search">
+                <div className="title">
+                    <h1>Looking for a specific landmark?</h1>
+                    <input type="text" value={filterByLandmark} placeholder='Landmark search...' onChange={handleLandmarkChange}/>
+                </div>
+            </div>
+            <div className="filtered-landmarks">
+                {
+                    filteredLandmarks.length === 0?
+                    (
+                        <div className="error">
+                            <h1>Landmark Not Found!</h1>
+                        </div>
+                    ) :
+                    (
+                      filteredLandmarks.map((landmark) => (
+                            <div className="landmark-item" key={landmark._id}>
+                                <img src={backend_url + "/images/" + landmark.image[0]} alt="" />
+                                <h1 onClick={() => HandleLandmarkClick(landmark.country, landmark.city, landmark.name)}>{landmark.name}</h1>
+                            </div>
+                        ))
+                    )
+                }
+            </div>
+          </React.Fragment>
         ))
       }
     </div>

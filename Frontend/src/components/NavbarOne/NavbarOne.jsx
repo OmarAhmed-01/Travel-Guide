@@ -36,7 +36,7 @@ const NavbarOne = () => {
                 </a>
             </div>
             <div className="details-header">
-                <a onMouseEnter={() => setPlanMenu(true)} onMouseLeave={() => setPlanMenu(false)} href="/plan-your-trip">
+                <a href="/plan-your-trip">
                     <h1>Plan your trip</h1>
                     {/* <img src={planMenu ? assets.arrow_up : assets.arrow_down} alt="" /> */}
                 </a>

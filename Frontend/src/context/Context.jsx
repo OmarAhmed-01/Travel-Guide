@@ -6,7 +6,8 @@ export const Context = createContext(null);
 const ContextProvider = (props) => {
 
     const navigate = useNavigate();
-    const backend_url = "https://travel-guide-backend.onrender.com";
+    // const backend_url = "https://travel-guide-backend.onrender.com";
+    const backend_url = "http://localhost:4000";
 
     const ref = useRef(null);
     const scrollAmount = 700;

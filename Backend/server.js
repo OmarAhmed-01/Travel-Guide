@@ -4,6 +4,7 @@ import cors from 'cors';
 import multer from 'multer';
 import fs from 'fs';
 import bodyParser from 'body-parser';
+import crypto from 'crypto';
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import 'dotenv/config';
@@ -19,13 +20,32 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(helmet({
-    crossOriginResourcePolicy: { policy: "cross-origin" }
+    contentSecurityPolicy: {
+        directives: {
+            defaultSrc: ["'self'"],
+            scriptSrc: ["'self'", "'wasm-unsafe-eval'", "'inline-speculation-rules'", (req, res) => `'nonce-${res.locals.nonce}'`],
+            styleSrc: ["'self'", "'unsafe-inline'"],
+            imgSrc: ["'self'", "data:"],
+            connectSrc: ["'self'"],
+            fontSrc: ["'self'", "https:"],
+            objectSrc: ["'none'"],
+            frameAncestors: ["'none'"],
+            formAction: ["'self'"],
+            upgradeInsecureRequests: [],
+        },
+    },
+    crossOriginResourcePolicy: { policy: "cross-origin" },
 }));
 app.use(cors({
-    origin: 'https://travel-guide-frontend.onrender.com', // Allow requests from this origin
+    origin: 'http://localhost:5173', // Allow requests from this origin
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
 }));
+app.use((req, res, next) => {
+    res.locals.nonce = crypto.randomBytes(16).toString('base64');
+    res.setHeader('Content-Security-Policy', `script-src 'self' 'wasm-unsafe-eval' 'inline-speculation-rules' 'nonce-${res.locals.nonce}';`);
+    next();
+});
 app.use("/images", express.static("uploads"));
 
 const __filename = fileURLToPath(import.meta.url);

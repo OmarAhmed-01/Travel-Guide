@@ -28,8 +28,6 @@ const Landmarks = () => {
         setFilterByCountry(event.target.value);
     };
 
-    console.log(filteredLandmarks);
-
     const fetchLandmarks = async() => {
         try {
             const response = await axios.get(backend_url + "/api/landmarks/get-landmarks");

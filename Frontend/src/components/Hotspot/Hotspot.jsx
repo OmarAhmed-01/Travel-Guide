@@ -22,11 +22,6 @@ const Hotspot = () => {
         getHotspot();
     }, []);
 
-    useEffect(() => {
-        console.log("Hotspots: "+ JSON.stringify(hotspot, null, 2));
-    }, [hotspot])
-
-
   return (
     <div className='hotspot-container'>
         <div className="hotspot-details">

@@ -83,12 +83,12 @@ const Nation = () => {
         </div>
         {
             Filtered_Nations.map((item) => (
-                <>
-                    <div className="nations-header" key={item._id}>
+                <React.Fragment key={item._id}>
+                    <div className="nations-header" >
                         <img src={backend_url + "/images/" + item.gallery[0]} alt="" />
                         <h1>{item.name}</h1>
                     </div>
-                    <div className="nations-details">
+                    <div className="nations-details" >
                         <div className="capital">
                             <h2>Capital City</h2>
                             <p>{item.capital}</p>
@@ -102,18 +102,18 @@ const Nation = () => {
                             <p>{item.timezone}</p>
                         </div>
                     </div>
-                    <div className="nations-information">
+                    <div className="nations-information" >
                         <h1>{`What is ${item.name}?`}</h1>
                         <p>{item.desc}</p>
                     </div>
                     <div className="nations-paragraphs">
                         {
-                            item.paragraphs.map((para) => (
-                                <>
-                                    <h1>{`What's so significant about ${item.name}?`}</h1>
-                                    <p>{para.p1}</p>
-                                    <p>{para.p2}</p>
-                                </>
+                            item.paragraphs.map((para, index) => (
+                                <React.Fragment key={index}>
+                                    <h1 >{`What's so significant about ${item.name}?`}</h1>
+                                    <p >{para.p1}</p>
+                                    <p >{para.p2}</p>
+                                </React.Fragment>
                             ))
                         }
                     </div>
@@ -123,8 +123,8 @@ const Nation = () => {
                             <button onClick={scrollRight}><img src={assets.arrow_right_scroll} alt="" /></button>
                         </div>
                         <div className="gallery-images" ref={ref}>
-                            {item.gallery.map((image) => (
-                                <img key={item._id} src={`${backend_url}/images/${image}`} alt="" />
+                            {item.gallery.map((image, index) => (
+                                <img key={index} src={`${backend_url}/images/${image}`} alt="" />
                             ))}
                         </div>
                     </div>
@@ -177,7 +177,7 @@ const Nation = () => {
                             )
                         }
                     </div>
-                </>
+                </React.Fragment>
                 
             ))
         }
