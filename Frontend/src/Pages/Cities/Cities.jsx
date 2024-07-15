@@ -19,11 +19,13 @@ const Cities = () => {
 
   const filterLandmarks = (landmarkName) => {
     return landmarks.filter(landmark => 
-      landmark.city.toLowerCase() === city.toLowerCase()
+      landmark.city.toLowerCase() === city.toLowerCase() &&
+      landmark.name.toLowerCase().includes(landmarkName.toLowerCase())
     )
   };
 
   const filteredLandmarks = filterLandmarks(filterByLandmark);
+  console.log(filterByLandmark);
 
   const fetchCities = async() => {
     try {
@@ -102,7 +104,7 @@ const Cities = () => {
                     <input type="text" value={filterByLandmark} placeholder='Landmark search...' onChange={handleLandmarkChange}/>
                 </div>
             </div>
-            <div className="filtered-landmarks">
+            <div className="filtered-landmarks-cities">
                 {
                     filteredLandmarks.length === 0?
                     (

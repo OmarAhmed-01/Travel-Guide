@@ -142,3 +142,14 @@
 .cities-gallery .gallery-images::-webkit-scrollbar{
     display: none;
 }
+.filtered-landmarks-cities{
+    width: 100%;
+    padding: 3% 5%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: aliceblue;
+}
+.filtered-landmarks-cities .error h1{
+    color: #001b5b;
+}
