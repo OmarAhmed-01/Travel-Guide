@@ -25,7 +25,6 @@ const Cities = () => {
   };
 
   const filteredLandmarks = filterLandmarks(filterByLandmark);
-  console.log(filterByLandmark);
 
   const fetchCities = async() => {
     try {
